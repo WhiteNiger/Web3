@@ -1,0 +1,39 @@
+a=[]
+q=0
+abc='0123456789'
+for i in range(10):
+    a.append(0)
+s=input()
+for i in s:
+    if i=='.':
+        break
+    else:
+        if i in abc:
+            a[abc.find(i)]+=1
+            q+=1
+k=0
+for i in range(10):
+    if a[i]%2==1:
+        k+=1
+        c=i
+st=''
+f=(a[0]==1)
+for i in range(10):
+    if (a[i]>1) or (a[i]==1) and (a[0]==0):
+        f=True
+if k>1 or not f or (q-a[0]<2) and q!=1:
+    print('NO')
+else:
+    print('YES')
+    for i in range(1,10):
+        for j in range(a[i]//2):
+            st=st+str(i)
+            if (st!='') and (len(st)==1):
+                for k in range(a[0]//2):
+                    st=st+str(0)
+    if k==1:
+        st=st+str(c)
+    if len(st)!=1:
+        print(st+st[len(st)-2::-1])
+    else:
+        print(st)

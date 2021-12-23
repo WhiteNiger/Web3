@@ -1,0 +1,23 @@
+N = int(input())
+
+rem = [0]*12
+for i in range(N):
+  x = int(input())
+  rem[x % 12] += 1
+
+count = 0
+for i in range(12):
+  for j in range(i,12):
+    for k in range(j,12):
+      if (i+j+k)%12 == 0:    
+        if i == j == k:
+          count += rem[i]*(rem[i]-1)*(rem[i]-2)//6
+        elif i == j:
+          count += rem[i]*(rem[i]-1)*rem[k]//2
+     #  elif i == k:
+     #    count += rem[i]*rem[j]*(rem[i]-1)//2
+        elif j == k:
+          count += rem[i]*rem[j]*(rem[j]-1)//2
+        else:
+          count += rem[i]*rem[j]*rem[k]
+print(count)

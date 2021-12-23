@@ -1,0 +1,14 @@
+s=0
+mr=100000000001
+n=int(input())
+for i in range(n):
+    a,b=map(int,input().split())
+    s=s+max(a,b)
+    if ((max(a,b)-min(a,b))%4!=0) and ((max(a,b)-min(a,b))<mr):
+        mr=max(a,b)-min(a,b)
+if s%4==0:
+    if mr==100000000001:
+        s=0
+    else:
+        s=s-mr
+print(s)
